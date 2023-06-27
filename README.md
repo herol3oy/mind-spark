@@ -1,6 +1,6 @@
 # 🧡 Mindspark - Random Quote Generator
 
-Mindspark is Next.js app that enables users to generate a random quote based on selected category. Additionally, users have the option to like and add the quotations that they come across to their favorites.
+Mindspark is a Next.js app that enables users to generate a random quote based on selected category. Additionally, users have the option to like and add the quotations that they come across to their favorites.
 
 ## Requirements to install, run, build and test the app
 
@@ -88,12 +88,12 @@ The structure of the response is as following:
 }
 ```
 
-## Dependencies
+## Tech Stacks and utility tools
 
-The project utilizes the following dependency:
-
+- Next.js
+- React
 - Tailwind CSS
-- Vitest Testing Framework (development dependency)
+- Vitest Testing Framework
 - Git flow
 
 ## Reference
@@ -103,3 +103,13 @@ The project utilizes the following dependency:
 - All the implemented code is made by me except settting up the testing framework which I followed the instructions from the above source
 
 
+## Screenshots
+
+Initial app view
+<img src="./public/screenshots/mindspark-screenshot-01.png" width="1920">
+
+Displaying a fetched quote
+<img src="./public/screenshots/mindspark-screenshot-02.png" width="1920">
+
+Favorite quotes in the sidebar
+<img src="./public/screenshots/mindspark-screenshot-03.png" width="1920">
