@@ -1,3 +1,7 @@
+import DisplayMessage from '@/components/shared/DisplayMessage'
+import FavoriteQuoteCard from '@/components/shared/FavoriteQuoteCard'
+import { MESSAGE } from '@/constants/message'
+import { FavoriteQuotesContext } from '@/context/FavoriteQuotesContext'
 import Image from 'next/image'
 import { Dispatch, SetStateAction, useContext } from 'react'
 
@@ -7,6 +11,8 @@ interface SideBarProps {
 }
 
 const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: SideBarProps) => {
+  const { favoriteQuotes } = useContext(FavoriteQuotesContext)
+
   const handleToggleSidebar = () => setIsSidebarOpen((open) => !open)
 
   return (
@@ -25,6 +31,15 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }: SideBarProps) => {
       />
       <h1 className="text-2xl font-bold text-center">Liked Quotes</h1>
       <hr className="my-5" />
+      <div className="flex flex-col gap-2">
+        {!favoriteQuotes.length ? (
+          <DisplayMessage message={MESSAGE.NO_LIKED_QUOTE_FOUND} />
+        ) : (
+          favoriteQuotes
+            .map((quote) => <FavoriteQuoteCard key={quote._id} quote={quote} />)
+            .reverse()
+        )}
+      </div>
     </aside>
   )
 }
