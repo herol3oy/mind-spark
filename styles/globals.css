@@ -2,26 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .primary-bg-color {
+    @apply bg-orange-600;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .secondary-bg-color {
+    @apply bg-amber-400;
+  }
+
+  .primary-text-color {
+    @apply text-orange-600;
+  }
+
+  .secondary-text-color {
+    @apply text-white;
+  }
+
+  .hover-translate {
+    @apply hover:-translate-y-1 transition-all duration-300;
+  }
+
+  html {
+    overflow: hidden;
+  }
+
+  body {
+    @apply primary-bg-color;
+  }
+
+  label {
+    @apply secondary-text-color;
+  }
+
+  input[type='radio'] {
+    @apply hidden;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply primary-bg-color;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0.2rem;
+  }
 }
