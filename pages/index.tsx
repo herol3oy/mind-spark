@@ -1,3 +1,4 @@
+import MainContainer from '@/components/MainContainer'
 import QuoteTagSelection from '@/components/QuoteTagSelection'
 import DisplayMessage from '@/components/shared/DisplayMessage'
 import QuoteCard from '@/components/shared/QuoteCard'
@@ -21,13 +22,15 @@ export default function Home() {
         setIsLoading={setIsLoading}
       />
 
-      {!isLoading && quote?.content && <QuoteCard quote={quote} />}
+      <MainContainer>
+        {!isLoading && quote?.content && <QuoteCard quote={quote} />}
 
-      {!isLoading && !selectedTag && (
-        <DisplayMessage message={MESSAGE.HOW_TO_START} />
-      )}
+        {!isLoading && !selectedTag && (
+          <DisplayMessage message={MESSAGE.HOW_TO_START} />
+        )}
 
-      {isLoading && <DisplayMessage message={MESSAGE.LOADING} />}
+        {isLoading && <DisplayMessage message={MESSAGE.LOADING} />}
+      </MainContainer>
     </>
   )
 }
