@@ -1,38 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mindspark - Random Quote Generator
 
-## Getting Started
+Mindspark enables users to generate a random quote based on selected category. Additionally, users have the option to like and add the quotations that they come across to their favorites.
 
-First, run the development server:
+## Requirements to install, run, build and test the app
+
+- Node.js (version 14 or above)
+- npm
+
+## Install the project dependencies:
+
+```bash
+npm install
+```
+
+## Running the Development Application
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Building the Application
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run build
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Starting the Built Application
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run start
+```
 
-## Learn More
+> Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To learn more about Next.js, take a look at the following resources:
+## Running the Tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+The app follows Next.js project structure, which is automatically set up by the `npx create-next-app@latest` command.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- components/: Reusable React components used throughout the application
+- constants/: Constant values
+- context/: App context being shared throughout the application
+- pages/: The pages of the application
+- public/: Stores static assets such as `svg` icons and `favicon`
+- styles/: Tailwind CSS configuration
+- tests/: The test files for the application
+- types/: Shared TypeScript type definitions
+- utils/: Utility functions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## State Management
+
+- `useState`
+- `useContext`
+
+## API Usage
+Quotable API Github Repository:
+```bash 
+https://github.com/lukePeavey/quotable/
+```
+
+Base url:
+```bash
+https://api.quotable.io
+```
+The API provides a random quote with specific tags. To fetch a random quote with the `Technology` and `Wisdom` tags, we send a `GET` request to the following endpoint:
+```bash
+GET /quotes/random?tags=technology
+```
+
+The structure of the response is as following: 
+
+```json
+{
+  _id: string
+  content: string
+  author: string
+  authorSlug: string
+  length: number
+  tags: string[]
+}
+```
+
+## Dependencies
+
+The project utilizes the following dependency:
+
+- Tailwind CSS
+- Vitest Testing Framework (development dependency)
+- Git flow
+
+## Reference
+Setup Vitest Testing Framework and testing codes: **Brian Holt** (FrontendMasters - Intermediate React, v5)
+[https://frontendmasters.com/courses/intermediate-react-v5/setup-react-testing-library-vitetest/](https://frontendmasters.com/courses/intermediate-react-v5/setup-react-testing-library-vitetest/)
+
+
