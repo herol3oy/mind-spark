@@ -1,4 +1,3 @@
-
 import Footer from '@/components/Footer'
 import SideBar from '@/components/SideBar'
 import TopBar from '@/components/TopBar'

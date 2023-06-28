@@ -5,9 +5,10 @@ import { INITIAL_QUOTE } from '@/constants/initial-quote'
 import { MESSAGE } from '@/constants/message'
 import { Quote } from '@/types/quote'
 import { QuoteTag } from '@/types/quote-tag'
-import { lazy, useState } from 'react'
+import dynamic from 'next/dynamic'
+import { useState } from 'react'
 
-const QuoteCard = lazy(() => import('@/components/shared/QuoteCard'))
+const QuoteCard = dynamic(() => import('@/components/shared/QuoteCard'))
 
 export default function Home() {
   const [quote, setQuote] = useState<Quote>(INITIAL_QUOTE)
