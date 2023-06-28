@@ -1,12 +1,13 @@
 import MainContainer from '@/components/MainContainer'
 import QuoteTagSelection from '@/components/QuoteTagSelection'
 import DisplayMessage from '@/components/shared/DisplayMessage'
-import QuoteCard from '@/components/shared/QuoteCard'
 import { INITIAL_QUOTE } from '@/constants/initial-quote'
 import { MESSAGE } from '@/constants/message'
 import { Quote } from '@/types/quote'
 import { QuoteTag } from '@/types/quote-tag'
-import { useState } from 'react'
+import { lazy, useState } from 'react'
+
+const QuoteCard = lazy(() => import('@/components/shared/QuoteCard'))
 
 export default function Home() {
   const [quote, setQuote] = useState<Quote>(INITIAL_QUOTE)
