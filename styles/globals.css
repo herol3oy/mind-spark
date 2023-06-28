@@ -2,7 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    @apply overflow-hidden;
+  }
+
+  body {
+    @apply primary-bg-color;
+  }
+
+  label {
+    @apply secondary-text-color;
+  }
+
+  input {
+    @apply hidden;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply primary-bg-color;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-0.5
+  }
+}
+
 @layer components {
+  .badge {
+    @apply border-0 text-center bg-white primary-text-color rounded-full p-2 uppercase;
+  }
+}
+
+@layer utilities {
   .primary-bg-color {
     @apply bg-orange-600;
   }
@@ -18,36 +50,7 @@
   .secondary-text-color {
     @apply text-white;
   }
-
-  .badge {
-    @apply border-0 text-center bg-white primary-text-color rounded-full p-2 uppercase;
-  }
-
   .hover-translate {
     @apply hover:-translate-y-1 transition-all duration-300;
-  }
-
-  html {
-    overflow: hidden;
-  }
-
-  body {
-    @apply primary-bg-color;
-  }
-
-  label {
-    @apply secondary-text-color;
-  }
-
-  input[type='radio'] {
-    @apply hidden;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    @apply primary-bg-color;
-  }
-
-  *::-webkit-scrollbar {
-    width: 0.2rem;
   }
 }
