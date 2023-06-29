@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 interface QuoteTagSelectionProps {
   setQuote: Dispatch<SetStateAction<Quote>>
+  isLoading: boolean
   setIsLoading: Dispatch<SetStateAction<boolean>>
   selectedTag: QuoteTag | null
   setSelectedTag: Dispatch<SetStateAction<QuoteTag | null>>
@@ -13,6 +14,7 @@ interface QuoteTagSelectionProps {
 const QuoteTagSelection = ({
   setQuote,
   setIsLoading,
+  isLoading,
   selectedTag,
   setSelectedTag,
 }: QuoteTagSelectionProps) => {
@@ -54,10 +56,14 @@ const QuoteTagSelection = ({
             className={`primary-text-color text-sm font-black rounded-md px-2 h-9 w-36 secondary-text-color disabled:cursor-not-allowed disabled:hover:-translate-y-0 hover-translate ${
               selectedTag ? 'bg-black primary-text-color' : 'primary-bg-color'
             }`}
-            disabled={!selectedTag}
+            disabled={!selectedTag || isLoading}
             onClick={handleGenerateQuote}
           >
-            {selectedTag ? 'Get a quote' : 'Select a category'}
+            {selectedTag
+              ? isLoading
+                ? 'Getting...'
+                : 'Get a quote'
+              : 'Select a category'}
           </button>
         </div>
       </div>

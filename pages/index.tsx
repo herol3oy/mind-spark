@@ -21,6 +21,7 @@ export default function Home() {
         selectedTag={selectedTag}
         setSelectedTag={setSelectedTag}
         setQuote={setQuote}
+        isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
 
